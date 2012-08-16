@@ -9,4 +9,18 @@ class Admin::ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
+  
+  def create
+    @article = Article.new(params[:article])
+    if @article.save!
+      flash[:notice] = "Article Saved!"
+      redirect_to admin_article_path(@article)
+    else
+      render 'new'
+    end
+  end
+  
+  def show
+    @article = Article.find(params[:id])
+  end
 end

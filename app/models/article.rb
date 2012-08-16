@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
+  attr_accessible :title, :body, :remove_attachment, :coordinates
   
-  mount_uploader :attachment, AttachmentUploader
-  # attr_accessible :title, :body
+  has_many :article_attachments, as: :attachable
+  accepts_nested_attributes_for :article_attachments
 end

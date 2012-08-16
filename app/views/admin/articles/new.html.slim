@@ -2,8 +2,12 @@
 = simple_form_for @article, url: admin_articles_path do |f|
   = f.input :title
   = f.input :body
-  label My Avatar
-  = image_tag(@article.attachment_url) if @article.attachment?
-  = f.file_field :attachment
-  = f.check_box :remove_attachment  
+  = f.fields_for :article_attachments do |attachment_form|
+    = attachment_form.label :description
+    = attachment_form.text_area :description
+    = attachment_form.label :file
+    = attachment_form.file_field :file
+    = attachment_form.link_to_remove "Remove this attachment"
+  = link_to 'Attach More', 'javascript:;', class: 'attachment_text_link', remote: true  
   = f.input :coordinates
+  = button_to "Create", admin_articles_path(@article)

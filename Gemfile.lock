@@ -161,6 +161,7 @@ GEM
       subexec (~> 0.2.1)
     multi_json (1.3.6)
     multi_xml (0.5.1)
+    nested_form (0.2.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -311,6 +312,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   mini_magick
+  nested_form
   pg
   pickle
   pry-rails
