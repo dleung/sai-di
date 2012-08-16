@@ -1,0 +1,9 @@
+| New Article Page
+= simple_form_for @article, url: admin_articles_path do |f|
+  = f.input :title
+  = f.input :body
+  label My Avatar
+  = image_tag(@article.attachment_url) if @article.attachment?
+  = f.file_field :attachment
+  = f.check_box :remove_attachment  
+  = f.input :coordinates

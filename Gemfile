@@ -22,7 +22,7 @@ gem 'active_link_to'
 
 group :assets do
   gem 'execjs'
-  gem 'compass'
+  gem 'compass-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

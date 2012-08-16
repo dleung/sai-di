@@ -1,0 +1,22 @@
+h1 Article Index page
+= link_to "New Article Entry", new_admin_article_path
+- if @articles.blank?
+  p No Articles Found
+- else
+  table
+    thead
+      tr
+        td Date
+        td Title
+        td body
+        td author
+    tbody
+      - @articles.each do |article|
+        tr
+          td = article.created_at
+          td = article.title
+          td = article.body
+          td = article.author
+
+          
+    
