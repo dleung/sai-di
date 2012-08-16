@@ -1,9 +1,16 @@
 # encoding: utf-8
 
 class AttachmentUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
   def extension_white_list
     %w(jpg jpeg gif png)
   end
+
+  
+  version :thumb do
+    process :resize_to_fit => [200,200]
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

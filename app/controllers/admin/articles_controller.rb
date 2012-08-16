@@ -7,16 +7,24 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    article = Article.create!
+    redirect_to edit_admin_article_path(article.id)
   end
   
-  def create
-    @article = Article.new(params[:article])
-    if @article.save!
+  def edit
+    @article = Article.find(params[:id])
+  end
+  
+  def update
+    @article = Article.find(params[:id])
+    @article.update_attributes(params[:article])
+
+    if @article.save
       flash[:notice] = "Article Saved!"
-      redirect_to admin_article_path(@article)
-    else
-      render 'new'
+      redirect_to edit_admin_article_path(@article)
+    else      
+      flash[:error] = 'Attachment could not be uploaded'
+      render 'edit'
     end
   end
   

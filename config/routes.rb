@@ -7,7 +7,9 @@ Capykoa::Application.routes.draw do
   resources :searches, only: [:index]
   
   namespace :admin do
-    resources :articles
+    resources :articles do
+      resources :article_attachments, :only => [:create, :destroy]
+    end
     match '/', :to => 'dashboard#index'
   end
 end

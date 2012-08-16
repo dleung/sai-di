@@ -15,5 +15,7 @@ doctype html
       #main
         section
           = yield
+          = yield :scripts
     .push
     #footer= render 'layouts/footer'
+    

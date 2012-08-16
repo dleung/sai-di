@@ -1,1 +1,14 @@
-| Edit Index Page
+| New Article Page
+= simple_form_for @article, url: admin_article_path(@article) do |f|
+  = f.input :title
+  = f.input :body
+  = f.input :coordinates
+  = f.submit
+
+- @article.article_attachments.each do |article_attachment|
+  = image_tag article_attachment.attachment_url if article_attachment.attachment?
+  = link_to "Delete", admin_article_article_attachment_path(@article, article_attachment), :method => :delete, :confirm => "Are you sure?"
+= simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article) do |attachment_form|
+  = attachment_form.input :title
+  = attachment_form.file_field :attachment
+  = attachment_form.submit

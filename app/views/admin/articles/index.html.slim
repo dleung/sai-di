@@ -14,7 +14,7 @@ h1 Article Index page
       - @articles.each do |article|
         tr
           td = article.created_at
-          td = article.title
+          td = link_to "article.title", edit_admin_article_path(article.id)
           td = article.body
           td = article.author_id
 
