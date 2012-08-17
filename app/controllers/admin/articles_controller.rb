@@ -18,12 +18,12 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @article.update_attributes(params[:article])
-
     if @article.save
+      @article.check_and_encode_address
       flash[:notice] = "Article Saved!"
       redirect_to edit_admin_article_path(@article)
     else      
-      flash[:error] = 'Attachment could not be uploaded'
+      flash[:error] = 'You are missing information'
       render 'edit'
     end
   end

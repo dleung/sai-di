@@ -110,8 +110,6 @@ GEM
       factory_girl (~> 4.0.0)
       railties (>= 3.0.0)
     ffi (1.1.5)
-    flash_cookie_session (1.1.3)
-      rails (~> 3.0)
     fssm (0.2.9)
     geokit (1.6.5)
       multi_json
@@ -163,7 +161,6 @@ GEM
       subexec (~> 0.2.1)
     multi_json (1.3.6)
     multi_xml (0.5.1)
-    nested_form (0.2.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -286,6 +283,7 @@ GEM
       nokogiri (~> 1.3)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
@@ -306,7 +304,6 @@ DEPENDENCIES
   email_spec
   execjs
   factory_girl_rails
-  flash_cookie_session
   geokit
   gritter
   guard-cucumber
@@ -315,7 +312,6 @@ DEPENDENCIES
   kaminari
   letter_opener
   mini_magick
-  nested_form
   pg
   pickle
   pry-rails

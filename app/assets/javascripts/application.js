@@ -3,4 +3,5 @@
 //= require jquery-ui
 //= require gritter
 //= require chosen.jquery
-//= require jquery_nested_form
+//= require jquery.lightbox-0.5.min
+//= require jquery.ui.map.full.min

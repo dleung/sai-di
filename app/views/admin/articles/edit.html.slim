@@ -1,14 +1,38 @@
 | New Article Page
-= simple_form_for @article, url: admin_article_path(@article) do |f|
-  = f.input :title
-  = f.input :body
-  = f.input :coordinates
-  = f.submit
-
+.form.yui-skin-sam
+  = simple_form_for @article, url: admin_article_path(@article) do |f|
+    = f.input :title
+    = f.input :body
+    = f.input :map_title, hint: "Required if address is filled"
+    = f.input :address
+    = f.submit
+ul
 - @article.article_attachments.each do |article_attachment|
-  = image_tag article_attachment.attachment_url if article_attachment.attachment?
+  li#gallery
+    = link_to article_attachment.attachment_url do
+      = image_tag article_attachment.attachment_url(:thumb) if article_attachment.attachment?
+  label link:
+  = request.host + article_attachment.attachment_url
   = link_to "Delete", admin_article_article_attachment_path(@article, article_attachment), :method => :delete, :confirm => "Are you sure?"
+- unless @article.coordinates.blank?
+  #map_canvas
+
 = simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article) do |attachment_form|
   = attachment_form.input :title
   = attachment_form.file_field :attachment
   = attachment_form.submit
+  
+= content_for :scripts do
+  javascript:
+    $('#map_canvas').gmap(
+              { 'center' : "#{@article.coordinates}", 
+                'zoom' : 15, 
+                'mapTypeControl' : false, 
+                'navigationControl' : true,
+                'streetViewControl' : false, 
+                'callback' : function(map) {
+                  var self = this;
+                  self.addMarker( {'position': "#{@article.coordinates}" } );
+
+               }
+        });

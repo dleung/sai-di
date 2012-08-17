@@ -7,6 +7,8 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   
+  process :resize_to_fit => [800,600]
+  
   version :thumb do
     process :resize_to_fit => [200,200]
   end
