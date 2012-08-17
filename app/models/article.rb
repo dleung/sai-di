@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :remove_attachment, :coordinates, :address, :map_title, :tag_list, :excerpt
+  attr_accessible :title, :body, :remove_attachment, :coordinates, :address, :map_title, :tag_list, :excerpt, :author_id
   has_many :article_attachments, dependent: :destroy
   accepts_nested_attributes_for :article_attachments
   validates :map_title, presence: true, :if => :address_present?

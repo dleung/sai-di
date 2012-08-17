@@ -16,7 +16,8 @@ $(function(){
     animateDropdown:   false});
   
   bkLib.onDomLoaded(function() { 
-    nicEditors.allTextAreas(({iconsPath : '/assets/nicEditorIcons.gif', fullPanel : true})) 
+    new nicEditor({iconsPath : '/assets/nicEditorIcons.gif', fullPanel : true}).panelInstance('article_body');
+    new nicEditor({iconsPath : '/assets/nicEditorIcons.gif', fullPanel : true}).panelInstance('article_excerpt'); 
     });
 
 
