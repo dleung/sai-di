@@ -1,22 +1,41 @@
-h1 Article Index page
-= link_to "New Article Entry", new_admin_article_path
+h1 All Articles
+= button_to "Create Article", new_admin_article_path, class: 'btn btn-primary', method: :get
 - if @articles.blank?
   p No Articles Found
 - else
-  table
+  table.table-bordered.table-striped#dataTable
     thead
       tr
-        td Date
-        td Title
-        td body
-        td author
+        th Date
+        th Title
+        th Excerpt
+        th Author
+        th
+        th
     tbody
       - @articles.each do |article|
         tr
-          td = article.created_at
-          td = link_to "article.title", edit_admin_article_path(article.id)
-          td = article.body
-          td = article.author_id
+          td 
+            = article.created_at.strftime("%D %r")
+          td = link_to article.title.present? ? article.title : "[Untitled]", edit_admin_article_path(article.id)
+          td = link_to article.excerpt.present? ? truncate_html(article.excerpt.html_safe, length: 20) : "[None]", edit_admin_article_path(article.id)
+          td = Admin.find(article.author_id).name
+          - if article.published?
+           td 
+             i.icon-ok[title="Published"]
+          - else
+           td
+          td = button_to "Delete", admin_article_path(article), method: :delete, class: 'btn btn-danger btn-mini', confirm: "Are you sure you want to remove this article?"
 
           
+= content_for :scripts do
+  javascript:
+    $('#dataTable').dataTable( {
+        "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>"
+    } );
+    $.extend( $.fn.dataTableExt.oStdClasses, {
+        "sSortAsc": "header headerSortDown",
+        "sSortDesc": "header headerSortUp",
+        "sSortable": "header"
+    } );
     

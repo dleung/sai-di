@@ -1,8 +1,10 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :remove_attachment, :coordinates, :address, :map_title, :tag_list, :excerpt, :author_id
+  attr_accessible :title, :body, :remove_attachment, :coordinates, :address, :map_title, :tag_list, :excerpt, :author_id, :published
   has_many :article_attachments, dependent: :destroy
   accepts_nested_attributes_for :article_attachments
   validates :map_title, presence: true, :if => :address_present?
+  validates :author_id, presence: true, on: :save
+  belongs_to :author, class_name: "Admin", foreign_key: "author_id"
   
   acts_as_taggable
   

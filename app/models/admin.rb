@@ -9,5 +9,7 @@ class Admin < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   # attr_accessible :title, :body
   
+  has_many :articles, foreign_key: 'author_id'
+  
   acts_as_tagger
 end

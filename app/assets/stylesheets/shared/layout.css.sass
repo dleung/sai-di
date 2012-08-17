@@ -1,0 +1,78 @@
+@import "compass/css3/pie"
+@import "compass/css3"
+
+$page_width: 980px
+
+section
+  width: $page_width
+  margin: 0 auto
+  min-height: 1000px
+
+#footer
+  text-align: center
+
+.width-81-percent
+  width: 81%
+
+.width-15-percent
+  width: 15%
+  
+.fleft
+  float: left
+
+.fright
+  float: right
+  
+.clear
+  clear: both
+
+.help-block
+  color: grey
+
+#admin_main
+  float: left
+  width: 81%
+  margin-left: 15px
+  padding: 10px
+  border: solid 1px rgba(0, 0, 0, .1)
+  @include pie
+  @include border-radius(3px)
+
+.clear-space
+  clear: both
+  height: 15px
+
+.navbar .nav > li
+  line-height: 37px
+  
+div.dataTables_length label 
+  width: 460px
+  float: left
+  text-align: left
+
+ 
+div.dataTables_length select 
+  width: 75px
+
+ 
+div.dataTables_filter label 
+  float: right
+  width: 460px
+
+ 
+div.dataTables_info 
+  padding-top: 8px
+
+div.dataTables_wrapper
+  .span8
+    width: 380px
+
+ 
+div.dataTables_paginate
+  float: right
+  margin: 0
+
+
+table
+  margin: 1em 0
+  clear: both

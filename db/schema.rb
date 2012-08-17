@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817014428) do
+ActiveRecord::Schema.define(:version => 20120817085356) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120817014428) do
     t.string   "url"
     t.string   "title"
     t.string   "thumbnail"
+    t.boolean  "published"
   end
 
   create_table "articles", :force => true do |t|
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120817014428) do
     t.boolean  "public"
     t.string   "map_title"
     t.text     "excerpt"
+    t.boolean  "published"
   end
 
   create_table "taggings", :force => true do |t|

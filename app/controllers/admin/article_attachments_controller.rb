@@ -6,9 +6,10 @@ class Admin::ArticleAttachmentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @article_attachment = @article.article_attachments.build(params[:article_attachment])
     unless @article.save
-      flash[:error] = 'Attachment could not be uploaded'
+      flash[:error] = 'Attachment Title is required'
     end
     redirect_to edit_admin_article_path(@article)
+    
   end
 
   def destroy
@@ -20,6 +21,18 @@ class Admin::ArticleAttachmentsController < ApplicationController
       flash[:error] = 'Photo could not be deleted'
     end
     redirect_to edit_admin_article_path(@article)
+  end
+
+  def update
+    @article_attachment = ArticleAttachment.find(params[:id])
+    @article = Article.find(params[:article_id])
+    if @article_attachment.update_attributes(params[:article_attachment])
+      flash[:notice] = "Attachment updated!"
+      redirect_to edit_admin_article_path(@article)
+    else      
+      flash[:error] = 'You are missing information'
+      render 'edit'
+    end
   end
 
 end

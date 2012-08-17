@@ -14,8 +14,16 @@ doctype html
       = render 'layouts/header'
       #main
         section
-          = yield
+          - if admin_signed_in?
+            = yield :page_title
+            .clear
+            .width-15-percent.fleft
+              = render 'layouts/admin_sidebar'
+            #admin_main
+              = yield
+          - else
+            = yield
           = yield :scripts
-    .push
+    .clear
     #footer= render 'layouts/footer'
     

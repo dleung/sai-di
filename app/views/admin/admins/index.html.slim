@@ -1,0 +1,37 @@
+h1 All Articles
+- if @admins.blank?
+  p No Admins
+- else
+  table.table-bordered.table-striped#dataTable
+    thead
+      tr
+        th Name
+        th Email
+        th Articles
+        th Verified?
+        th Joined
+    tbody
+      - @admins.each do |admin|
+        tr
+          td = admin.name
+          td = admin.email
+          td = admin.articles.count
+          - if admin.manual_verified?
+           td 
+             i.icon-ok[title="Verified"]
+          - else
+           td
+          td = admin.created_at.strftime("%r")
+
+          
+= content_for :scripts do
+  javascript:
+    $('#dataTable').dataTable( {
+        "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>"
+    } );
+    $.extend( $.fn.dataTableExt.oStdClasses, {
+        "sSortAsc": "header headerSortDown",
+        "sSortDesc": "header headerSortUp",
+        "sSortable": "header"
+    } );
+    

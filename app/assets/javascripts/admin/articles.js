@@ -20,5 +20,4 @@ $(function(){
     new nicEditor({iconsPath : '/assets/nicEditorIcons.gif', fullPanel : true}).panelInstance('article_excerpt'); 
     });
 
-
 });

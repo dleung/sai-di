@@ -7,7 +7,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def new
-    article = Article.create!
+    article = Article.create!(author_id: current_admin.id)
     redirect_to edit_admin_article_path(article.id)
   end
 
@@ -46,5 +46,15 @@ class Admin::ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
+  end
+  
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      flash[:notice] = "Article Deleted!"
+    else
+      flash[:notice] = "An Error Occured!"
+    end
+    redirect_to admin_articles_path
   end
 end

@@ -1,0 +1,11 @@
+.well
+  ul.nav.nav-list
+    li.nav-header Admin Links
+    li 
+      = active_link_to admin_articles_path do
+        i.icon-home
+        | Articles
+    li 
+      = active_link_to admin_admins_path do
+        i.icon-user
+        | Admin Users

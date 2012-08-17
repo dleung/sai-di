@@ -1,17 +1,19 @@
-= link_to "Logo Goes Here", root_path
-
-- if admin_signed_in?
-  = link_to "My Dashboard", admin_path
-  | Logged in as:
-  = current_admin.name
-  = link_to "Sign out", destroy_admin_session_path, :method => :delete
-- else
-  = link_to "Sign in", new_admin_session_path
-- if admin_signed_in?
-  ul
-    li = link_to "Dashboard", admin_path
-    li = link_to "Articles", admin_articles_path
-- else
+.navbar
+  .navbar-inner
+    .container
+      ul.nav
+        - if admin_signed_in?
+          li = link_to "Capykoa.com", root_path    
+          li = link_to "My Dashboard", admin_path
+      .fright
+        ul.nav
+          - if admin_signed_in?
+            li Logged in as:
+            li = current_admin.name
+            li = link_to "Sign out", destroy_admin_session_path, :method => :delete
+          - else
+            = link_to "Sign in", new_admin_session_path
+- unless admin_signed_in?
   ul
     li = link_to "Home", root_path
     li = link_to "Food", food_path

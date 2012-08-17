@@ -1,46 +1,53 @@
-h1 = @article.title
-
-= simple_form_for @article, url: admin_article_path(@article), :html => {:class => "well"} do |f|
-  h3 Tag List
-  = f.text_field :tag_list,  :id => "article_tags", "data-pre" => @article.tags.map(&:attributes).to_json
+= simple_form_for @article, url: admin_article_path(@article), :html => {:class => "form-vertical well"} do |f|
+  h2 Edit Article 
   = f.input :title
-  = f.input :excerpt
-  = f.input :body
-  = f.input :map_title, hint: "Required if address is filled"
+  = f.input :excerpt, hint: 'Only the excerpt will show in the search results and front pages'
+  = f.input :body, hint: 'The main contents will combine both the excerpt and body of the article'
+  = f.label :tag_list
+  = f.text_field :tag_list,  :id => "article_tags", "data-pre" => @article.tags.map(&:attributes).to_json
+  .clear
+  = f.label "Author"
   = f.select :author_id, options_for_select(Admin.all.collect {|x| [x.name, x.id]})
-
+  .clear
+  = f.label "Published?"
+  = f.input :published, label: false, hint: "Publish this article to allow the public to view it"
+  .clear
   h3 Location
-  = f.input :address
+  = f.input :address, hint: 'optional'
+  = f.input :map_title, label: 'Map Label', hint: 'Identify the title of the address aka "My House".  Map title is required if address is filled.'
   - unless @article.coordinates.blank?
     #map_canvas
-  .form-actions
-    = f.submit "Save Page", class: "btn btn-primary"
-    = button_to "Cancel",'#', class: "btn"
+  
+  = f.button :wrapped, cancel: '#', class: "btn"
+.clear-space
 h2 Attachments
-form.well
+.well
   ul.thumbnails
-    - @article.article_attachments.each do |article_attachment|
+    - @article.article_attachments.sort_by { |obj| obj.created_at }.each do |article_attachment|
       li#gallery
         .thumbnail
           = link_to article_attachment.attachment_url do
             = image_tag article_attachment.attachment_url(:thumb) if article_attachment.attachment?
-        h5 = article_attachment.title
-        p 
-          | Link:
-          br
-          = raw breaking_wrap_wrap(request.host + article_attachment.attachment_url)
-        p = button_to "Delete", admin_article_article_attachment_path(@article, article_attachment), :method => :delete, :confirm => "Are you sure?", class: "btn btn-mini btn-danger"
-
-= simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article), :html => {:class => "well"} do |attachment_form|
-  h3 Add additional attachments
-  .alert.alert-error
-    b Make sure you save your form first before adding any attachments
-  = attachment_form.input :title, label: "Name of attachment"
-  = attachment_form.file_field :attachment
-  = attachment_form.submit "Add Attachment", class: "btn btn-primary"
-
+        h3 = article_attachment.title
+        p = raw breaking_wrap_wrap(request.host + article_attachment.attachment_url)
+        = simple_form_for article_attachment, url: admin_article_article_attachment_path(@article, article_attachment) do |article_attachment_form|
+          = article_attachment_form.input :published, label: "Published?", wrapper_html: {class: "no-margin"}
+          .fleft
+            .fleft = button_to "Update", admin_article_article_attachment_path(@article, id: article_attachment.id), method: :put, class: "btn btn-info btn-mini no-margin"
+            .fleft = button_to "Delete", admin_article_article_attachment_path(@article, id: article_attachment.id), :method => :delete, :confirm => "Are you sure?", class: "btn btn-mini btn-danger no-margin"
+  = simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article), :html => {:class => "well"} do |attachment_form|
+    h3 Add Additional Attachments
+    .alert.alert-error
+      b Make sure you save your work before adding any attachments, or any changes will be lost
+    = attachment_form.input :title, label: "Name of attachment", hint: 'Required for any attachments'
+    = attachment_form.label "Published?"
+    = attachment_form.input :published, hint: 'Images not published will not be visible.'
+    = attachment_form.file_field :attachment
+    .clear
+    = attachment_form.submit "Add Attachment", class: "btn btn-primary"
   
-
+= content_for :page_title do
+  h1 = controller_name.titleize
 
 = content_for :scripts do
   javascript:

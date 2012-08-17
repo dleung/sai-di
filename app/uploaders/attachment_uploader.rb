@@ -10,7 +10,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   process :resize_to_fit => [800,600]
   
   version :thumb do
-    process :resize_to_fit => [200,200]
+    process :resize_to_fill => [200,200]
   end
 
   # Include RMagick or MiniMagick support:
