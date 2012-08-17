@@ -14,4 +14,9 @@ module ApplicationHelper
     html += capture( &block ) << "\n</html>".html_safe if block_given?
     html.html_safe
   end
+  
+  def breaking_wrap_wrap(txt, col = 30)
+    txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/,
+      "\\1\\3\n").gsub("\n", '<br/>')
+  end
 end
