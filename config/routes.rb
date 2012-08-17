@@ -5,10 +5,10 @@ Capykoa::Application.routes.draw do
   match '/programming', :to => 'home#programming'
   
   resources :searches, only: [:index]
-  
   namespace :admin do
     resources :articles do
       resources :article_attachments, :only => [:create, :destroy]
+      get "tags"
     end
     match '/', :to => 'dashboard#index'
   end

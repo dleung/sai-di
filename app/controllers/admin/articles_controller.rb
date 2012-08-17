@@ -10,7 +10,23 @@ class Admin::ArticlesController < ApplicationController
     article = Article.create!
     redirect_to edit_admin_article_path(article.id)
   end
-  
+
+  def tags 
+    query = params[:q]
+    if query[-1,1] == " "
+      query = query.gsub(" ", "")
+      ActsAsTaggableOn::Tag.find_or_create_by_name(query)
+    end
+
+    #Do the search in memory for better performance
+
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags = @tags.select { |v| v.name =~ /#{query}/i }
+    respond_to do |format|
+      format.json { render :json => @tags.collect{|t| {:id => t.name, :name => t.name }}}
+    end
+  end
+
   def edit
     @article = Article.find(params[:id])
   end

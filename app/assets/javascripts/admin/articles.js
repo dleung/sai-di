@@ -7,15 +7,17 @@ $(function(){
     imageBtnNext: '/assets/lightbox-btn-next.gif',
     overlayBgColor: '#FFF'
     });
-  var Editor = new YAHOO.widget.SimpleEditor('article_body', {
-    height: '500px',
-    width: '95%',
-    dompath: true,
-    animate: true
-  });
-  Editor.on('editorWindowBlur', function() {
-    $('#article_body').html(Editor.getEditorHTML());
-  });
-  Editor.render();  
-    
+
+  $("#article_tags").tokenInput("tags.json", {
+    prePopulate:       $("#article_tags").data("pre"),
+    preventDuplicates: true,
+    theme: "facebook",
+    noResultsText: "No result, hit space to create a new tag",
+    animateDropdown:   false});
+  
+  bkLib.onDomLoaded(function() { 
+    nicEditors.allTextAreas(({iconsPath : '/assets/nicEditorIcons.gif', fullPanel : true})) 
+    });
+
+
 });

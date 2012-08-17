@@ -1,11 +1,16 @@
-| New Article Page
-.form.yui-skin-sam
-  = simple_form_for @article, url: admin_article_path(@article) do |f|
-    = f.input :title
-    = f.input :body
-    = f.input :map_title, hint: "Required if address is filled"
-    = f.input :address
-    = f.submit
+h1 = @article.title
+= simple_form_for @article, url: admin_article_path(@article), :html => {:class => "well"} do |f|
+  h1 Tag List
+  = f.text_field :tag_list,  :id => "article_tags", "data-pre" => @article.tags.map(&:attributes).to_json
+  = f.input :title
+  = f.input :excerpt
+  = f.input :body
+  = f.input :map_title, hint: "Required if address is filled"
+  = f.input :address
+  = f.select :author_id, options_for_select(Admin.all.collect {|x| [x.name, x.id]})
+
+  = f.submit "Save Page", class: "btn btn-primary"
+  = button_to "Cancel",'#', class: "btn"
 ul
 - @article.article_attachments.each do |article_attachment|
   li#gallery
@@ -17,11 +22,12 @@ ul
 - unless @article.coordinates.blank?
   #map_canvas
 
-= simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article) do |attachment_form|
+= simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article), :html => {:class => "well"} do |attachment_form|
   = attachment_form.input :title
   = attachment_form.file_field :attachment
   = attachment_form.submit
   
+
 = content_for :scripts do
   javascript:
     $('#map_canvas').gmap(
