@@ -12,7 +12,7 @@
             li = current_admin.name
             li = link_to "Sign out", destroy_admin_session_path, :method => :delete
           - else
-            = link_to "Sign in", new_admin_session_path
+            li = link_to "Sign in", new_admin_session_path
 
 #banner
   #logo
@@ -30,4 +30,4 @@
       li.link = active_link_to programming_path do
         b.capitalized P
         | rogramming
-      li#about.link = active_link_to "About", "#"
+      li#about.link = active_link_to "About", about_path

@@ -3,6 +3,7 @@ Capykoa::Application.routes.draw do
   root :to => "home#index"
   match '/food', :to => 'home#food'
   match '/programming', :to => 'home#programming'
+  match '/about', :to => 'home#about'
   resources :articles, only: [:show]
   resources :searches, only: [:index]
   namespace :admin do

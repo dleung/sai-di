@@ -1,0 +1,23 @@
+.content
+  .min-height-900
+    .about_capykoa Lorem ipsum text goes here
+    
+    ul.nav.nav-tabs#tabs
+      li = link_to "About Me", '#tab-1'
+      li = link_to "Portfolio", '#tab-2'
+    .tab-content
+      .tab-pane#tab-1
+        p Contents of panel 1
+      .tab-pane#tab-2
+        p Contents of panel 2
+  .clear
+  .mouse_back = image_tag('mouse_back.png', size: '48x48')
+  span.footer &copy; Capykoa.com 2012
+  
+= content_for :scripts do
+  javascript:
+    $('#tabs a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    })
+    $('#tabs a:first').tab('show');
