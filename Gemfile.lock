@@ -141,6 +141,9 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    kaminari-bootstrap (0.1.2)
+      kaminari
+      rails
     launchy (2.1.2)
       addressable (~> 2.3)
     letter_opener (0.0.2)
@@ -310,6 +313,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-themes
   kaminari
+  kaminari-bootstrap
   letter_opener
   mini_magick
   pg

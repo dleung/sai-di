@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817085356) do
+ActiveRecord::Schema.define(:version => 20120818030913) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20120817085356) do
     t.string   "address"
     t.boolean  "public"
     t.string   "map_title"
-    t.text     "excerpt"
     t.boolean  "published"
   end
 

@@ -1,6 +1,7 @@
 class Admin::ArticleAttachmentsController < ApplicationController
   before_filter :authenticate_admin!
   before_filter :check_admin_verification!
+  layout "admin_application"
   
   def create
     @article = Article.find(params[:article_id])

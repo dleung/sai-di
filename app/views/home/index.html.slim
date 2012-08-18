@@ -1,1 +1,63 @@
-| This is my index page!
+.content
+  .min-height-900
+    - if @search_query.present? || @search_tags.present?
+      h2 
+        = "Showing #{@articles.size} results"
+        -if @search_query.present?
+          = " for #{@search_query}"
+        -if @search_tags.present?
+          = " with tags " + @search_tags.join(', ')
+    #intro
+      -if action_name == "index" && controller_name == "home"
+        #bk.index 
+          | index!  yaddayadda ydadakj sdflkja sdlkfasdlkfj a;sdklfj al;sdkfj a;klsdfj a;lsdkfja; lsdfja;lsdk fal;skdfj askldfj a;sldkfja;sld fjasdlf
+      -elsif action_name == "food"
+        #bk.food 
+          | food!  yaddayadda ydadakj sdflkja sdlkfasdlkfj a;sdklfj al;sdkfj a;klsdfj a;lsdkfja; lsdfja;lsdk fal;skdfj askldfj a;sldkfja;sld fjasdlf
+      -elsif action_name == "programming"
+        #bk.programming
+          | programming!  yaddayadda ydadakj sdflkja sdlkfasdlkfj a;sdklfj al;sdkfj a;klsdfj a;lsdkfja; lsdfja;lsdk fal;skdfj askldfj a;sldkfja;sld fjasdlf
+    .clear-space
+    - @articles.each_with_index do |article|
+      .article{id="article_#{article.id}"}
+        .date_timeline 
+          - if article.created_at.today? 
+            b Today
+          - else
+            b = article.created_at.strftime("%B")
+            br
+            = article.created_at.strftime("%D")
+        h3 = link_to article.title, article
+        .text = truncate_html article.body.html_safe, length: 600
+        attachment.clear
+          ul.thumbnails
+            - article.article_attachments[0..4].sort_by { |obj| obj.created_at }.each do |article_attachment|
+              li#gallery
+                .thumbnail
+                  = link_to article_attachment.attachment_url, title: article_attachment.title do
+                    = image_tag article_attachment.attachment_url(:tiny) if article_attachment.attachment?
+        .read_more = link_to "Read More", article
+        .written
+          .author
+            = article.created_at.strftime("%r- %D- ")
+            = Admin.find(article.author_id).name
+          .tags
+            = article.tags.map {|tag| link_to tag.name.titleize, searches_path(tag_ids: [tag.name], q: "")}.join(", ").html_safe
+    .paginate.fright = paginate(@articles)
+    .clear
+    
+  .mouse_back = image_tag('mouse_back.png', size: '48x48')
+  span.footer &copy; Capykoa.com 2012
+#search_area.well
+  = form_tag searches_path, method: 'get' do
+    .input-append
+      = text_field_tag :q, params[:q], placeholder: 'Search', class: 'inputbox span2', id: 'query'
+      button class="btn" type="submit" id="search" value="Submit" 
+        = image_tag("../assets/mouse_tracks.png", size: "19x16")
+    label Tags
+    - @all_tags.each do |tag|
+      label.checkbox
+        = check_box_tag "tag_ids[]", tag.name
+        = tag.name.titleize
+        = " (#{tag.count})"
+      

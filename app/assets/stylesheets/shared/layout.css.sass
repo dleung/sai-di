@@ -5,11 +5,16 @@ $page_width: 980px
 
 section
   width: $page_width
-  margin: 0 auto
+  margin: 20px auto 0 auto
   min-height: 1000px
 
-#footer
-  text-align: center
+#banner
+  width: $page_width
+  margin: 40px auto 0 auto
+
+ul
+  li
+    list-style: none
 
 .width-81-percent
   width: 81%
@@ -76,3 +81,92 @@ div.dataTables_paginate
 table
   margin: 1em 0
   clear: both
+
+
+#banner
+  background: url('../capykoa_banner.jpg') no-repeat right center
+  height: 168px
+  #logo
+    img
+      margin-top: 15px
+    #logo_text
+      font-family: 'Architects Daughter', cursive
+      font-size: 22px
+      position: relative
+      left: 122px
+      top: -26px
+
+.footer
+  font-family:  'Architects Daughter', cursive
+  position: relative
+  top: 37px
+  left: 37px
+
+.front-menubar
+  ul
+    background: url('../banner-swirl.png') no-repeat center
+    background-position-y: 6px
+    height: 45px
+    margin-top: 20px
+    li
+      font-family: 'Architects Daughter', cursive
+      float: left
+      margin-left: 35px
+      min-width: 65px
+      text-align: center
+      &.link:hover
+        background: url('../menu-shadowing.png') no-repeat
+        background-position: center 35px
+
+      b.capitalized
+        font-size: 22px
+        color: black
+      &.mouse
+        margin-left: 0px
+      img
+        
+      &#about
+        float: right
+        margin-right: 60px
+      a
+        color: #9d9d9d
+        line-height: 48px
+        font-size: 18px
+        &:hover
+          text-decoration: none
+        &.active
+          b.capitalized
+            color: #00078f
+          color: #a3a1ec
+
+.content
+  border-left: solid 2px #adadad 
+  width: 610px
+  float: left
+  margin-left: 55px
+  .mouse_back
+    position: relative
+    img
+      position: absolute
+      left: -25px
+      top: 25px
+      
+.min-height-900
+  min-height: 900px
+  padding-top: 40px
+  padding-left: 50px
+
+.reduced_text_size, .mini_text_size
+  height: 100px
+
+.mini_text_size
+  width: 140px
+  
+#bk 
+  height: 145px
+  &.index
+    background: url('../capykoa_banner.jpg') no-repeat
+  &.food
+    background: url('../capykoa_banner.jpg') no-repeat
+  &.programming
+    background: url('../capykoa_banner.jpg') no-repeat

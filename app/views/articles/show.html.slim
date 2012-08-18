@@ -1,0 +1,45 @@
+.content
+  .min-height-900
+    .fleft = link_to "Back", :back
+    .clear
+    h2 = @article.title
+    .text = @article.body.html_safe
+    attachment.clear
+      ul.thumbnails
+        - @article.article_attachments[0..4].sort_by { |obj| obj.created_at }.each do |article_attachment|
+          li#gallery
+            .thumbnail
+              = link_to article_attachment.attachment_url, title: article_attachment.title do
+                = image_tag article_attachment.attachment_url(:thumb) if article_attachment.attachment?
+              p = article_attachment.title
+    - unless @article.coordinates.blank?
+      #map_canvas
+    .written
+      .author
+        = @article.created_at.strftime("%r- %D- ")
+        = Admin.find(@article.author_id).name
+      .tags
+        = @article.tags.map {|tag| link_to tag.name.titleize, searches_path(tag_ids: [tag.name], q: "")}.join(", ").html_safe
+  
+  
+  .clear
+  .mouse_back = image_tag('mouse_back.png', size: '48x48')
+  span.footer &copy; Capykoa.com 2012
+
+
+= content_for :scripts do
+  javascript:
+    $('#map_canvas').gmap(
+              { 'center' : "#{@article.coordinates}", 
+                'zoom' : 15, 
+                'mapTypeControl' : false, 
+                'navigationControl' : true,
+                'streetViewControl' : false, 
+                'callback' : function(map) {
+                  var self = this;
+                  self.addMarker( {'position': "#{@article.coordinates}" } );
+
+               }
+        });
+  
+  

@@ -1,0 +1,26 @@
+doctype html
+= conditional_html do
+  head
+    title Capykoa.com Admin
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = favicon_link_tag
+    = csrf_meta_tags
+    = render 'layouts/font'
+  body
+    = render 'layouts/gmaps'
+    #wrapper{class=controller_name}
+      = render 'layouts/flash_container'
+      = render 'layouts/admin_header'
+      #main
+        section
+          = yield :page_title
+          .clear
+          .width-15-percent.fleft
+            = render 'layouts/admin_sidebar'
+          #admin_main
+            = yield
+          = yield :scripts
+    .clear
+    #footer= render 'layouts/footer'
+    

@@ -1,0 +1,11 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      ul.nav
+        li = link_to "Capykoa.com", root_path    
+        li = link_to "My Dashboard", admin_path
+      .fright
+        ul.nav
+          li Logged in as:
+          li = current_admin.name
+          li = link_to "Sign out", destroy_admin_session_path, :method => :delete

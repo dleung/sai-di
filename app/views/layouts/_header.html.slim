@@ -1,4 +1,4 @@
-.navbar
+.navbar.navbar-fixed-top
   .navbar-inner
     .container
       ul.nav
@@ -13,8 +13,21 @@
             li = link_to "Sign out", destroy_admin_session_path, :method => :delete
           - else
             = link_to "Sign in", new_admin_session_path
-- unless admin_signed_in?
-  ul
-    li = link_to "Home", root_path
-    li = link_to "Food", food_path
-    li = link_to "Programming", programming_path
+
+#banner
+  #logo
+    = image_tag "capykoa-lights.jpg", size: "190x72"
+    #logo_text Blogging on Eats and Code
+  .front-menubar
+    ul
+      li.mouse = image_tag "mouse.png", size: "48x48"
+      li.link = active_link_to root_path do
+        b.capitalized H
+        | ome
+      li.link = active_link_to food_path do
+        b.capitalized F
+        | ood
+      li.link = active_link_to programming_path do
+        b.capitalized P
+        | rogramming
+      li#about.link = active_link_to "About", "#"

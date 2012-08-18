@@ -18,7 +18,7 @@ gem 'tinymce-rails'
 gem 'geokit'
 gem 'truncate_html'
 gem 'active_link_to'
-
+gem 'kaminari-bootstrap'
 
 group :assets do
   gem 'execjs'
