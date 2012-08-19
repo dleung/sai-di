@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.7'
 
 gem 'pg'
+gem 'news_feed'
 gem 'devise'
 gem 'slim'
 gem 'simple_form'
@@ -12,6 +13,7 @@ gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'kaminari'
 gem 'gritter'
+gem 'obscenity'
 gem 'acts-as-taggable-on'
 gem 'sanitize'
 gem 'tinymce-rails'
@@ -19,6 +21,7 @@ gem 'geokit'
 gem 'truncate_html'
 gem 'active_link_to'
 gem 'kaminari-bootstrap'
+gem 'news_feed_sample_app', :path => "../news_feed_sample_app"
 
 group :assets do
   gem 'execjs'

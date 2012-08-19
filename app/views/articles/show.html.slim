@@ -2,8 +2,8 @@
   .min-height-900
     .fleft = link_to "Back", :back
     .clear
-    h2 = @article.title
-    .text = @article.body.html_safe
+    h2 = @article.title.present? ? @article.title : "[Untitled]"
+    .text = @article.body.present? ? @article.body.html_safe : "[No Contents]"
     attachment.clear
       ul.thumbnails
         - @article.article_attachments[0..4].sort_by { |obj| obj.created_at }.each do |article_attachment|

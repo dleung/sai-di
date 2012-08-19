@@ -36,8 +36,9 @@ class DeviseCreateAdmins < ActiveRecord::Migration
 
 
       t.timestamps
+      
     end
-
+    admin = Admin.create!( :email => 'davleun@gmail.com', :password => 'icecream', name: "David Leung", manual_verified: true )
     add_index :admins, :email,                :unique => true
     add_index :admins, :reset_password_token, :unique => true
     # add_index :admins, :confirmation_token,   :unique => true

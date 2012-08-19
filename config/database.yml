@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: development_dleung_2
+  database: development_dleung_3
   pool: 5
   username: quosap
   password: graceling
@@ -10,7 +10,7 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: production_dleung_2
+  database: production_dleung_3
   pool: 5
   username: quosap
   password: graceling
@@ -19,7 +19,7 @@ production:
 test:
   adapter: postgresql
   encoding: unicode
-  database: test_dleung_2
+  database: test_dleung_3
   pool: 5
   username: quosap
   password: graceling
