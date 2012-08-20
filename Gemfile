@@ -22,7 +22,7 @@ gem 'geokit'
 gem 'truncate_html'
 gem 'active_link_to'
 gem 'kaminari-bootstrap'
-gem 'news_feed_sample_app', :path => "lib/mountable/NewsFeedSampleApp"
+#gem 'news_feed_sample_app', :path => "../NewsFeedSampleApp"
 
 
 group :assets do

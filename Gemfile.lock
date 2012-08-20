@@ -10,13 +10,6 @@ GIT
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0.beta1)
 
-PATH
-  remote: lib/mountable/NewsFeedSampleApp
-  specs:
-    news_feed_sample_app (0.0.1)
-      obscenity
-      rails (~> 3.2.7)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -333,7 +326,6 @@ DEPENDENCIES
   mini_magick
   mysql2
   news_feed
-  news_feed_sample_app!
   obscenity
   pickle
   pry-rails

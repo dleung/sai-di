@@ -1,10 +1,5 @@
-require "rvm/capistrano"   
-
-
 default_run_options[:pty] = true  # Must be set for the password prompt
                                   # from git to work
-set :rvm_type, :system
-
 set :application, "capykoa"
 set :repository,  "git@github.com:dleung/capykoa.com.git"
 set :branch, "master"
