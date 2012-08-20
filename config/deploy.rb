@@ -15,7 +15,13 @@ default_run_options[:pty] = true
 role :app, 'capykoa.com'
 role :web, 'capykoa.com'
 role :db,  'capykoa.com', :primary => true
-set :rake, "/opt/local/bin/rake"
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+
+# Load RVM's capistrano plugin.    
+require "rvm/capistrano"
+
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :user 
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
