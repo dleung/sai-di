@@ -1,5 +1,3 @@
-default_run_options[:pty] = true  # Must be set for the password prompt
-                                  # from git to work
 set :user, 'root'
 set :domain, 'capykoa.com'
 set :application, "capykoa"
