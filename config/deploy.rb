@@ -15,6 +15,7 @@ default_run_options[:pty] = true
 role :app, 'capykoa.com'
 role :web, 'capykoa.com'
 role :db,  'capykoa.com', :primary => true
+set :rake, "/opt/local/bin/rake"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
