@@ -1,4 +1,4 @@
-set :user, 'root'
+set :user, 'deploy'
 set :domain, 'capykoa.com'
 set :application, "capykoa"
  
