@@ -7,7 +7,7 @@ set :scm, "git"
 set :branch, "master"
 set :scm_verbose, true
 set :scm_passphrase, "icecream"  # The deploy user's password
-set :deploy_to, "/home/#{user}/#{domain}"
+set :deploy_to, "/home/#{user}/#{domain}_server"
 set :use_sudo, false
 set :deploy_via, :remote_cache
 set :normalize_asset_timestamps, false
