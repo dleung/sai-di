@@ -1,27 +1,24 @@
 default_run_options[:pty] = true  # Must be set for the password prompt
                                   # from git to work
+set :user, 'root'
+set :domain, 'capykoa.com'
 set :application, "capykoa"
 set :repository,  "git@github.com:dleung/capykoa.com.git"
 set :branch, "master"
 set :scm, "git"
 set :scm_verbose, true
 set :deploy_via, :remote_cache
+set :scm_passphrase, "zero7one4"
 set :deploy_to, "/home/deploy/capykoa-web"
-set :use_sudo, false
-set :normalize_asset_timestamps, false
-ssh_options[:keys] = %w(~/.ssh/id_dsa) 
+set :use_sudo, false 
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 default_run_options[:pty] = true
-role :app, 'capykoa.com'
-role :web, 'capykoa.com'
-role :db,  'capykoa.com', :primary => true
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+ssh_options[:forward_agent] = true
 
-# Load RVM's capistrano plugin.    
-require "rvm/capistrano"
 
-set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user 
+role :app, domain
+role :web, domain
+role :db,  domain, :primary => true
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"

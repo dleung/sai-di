@@ -14,6 +14,6 @@ Capykoa::Application.routes.draw do
     resources :admins
     match '/', :to => 'dashboard#index'
   end
-  #mount NewsFeedSampleApp::Engine, :at => "/news_feed"
+  mount NewsFeedSampleApp::Engine, :at => "/news_feed"
   
 end

@@ -22,8 +22,7 @@ gem 'geokit'
 gem 'truncate_html'
 gem 'active_link_to'
 gem 'kaminari-bootstrap'
-#gem 'news_feed_sample_app', :path => "../NewsFeedSampleApp"
-
+gem 'news_feed_sample_app', :git => 'git@github.com:dleung/NewsFeedSampleApp.git'
 
 group :assets do
   gem 'execjs'
@@ -71,6 +70,7 @@ gem 'jquery-ui-themes'
 # gem 'unicorn'
 
 # Deploy with Capistrano
+gem 'capistrano'
 gem 'rvm-capistrano'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
