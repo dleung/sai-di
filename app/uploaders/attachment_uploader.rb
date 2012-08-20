@@ -6,7 +6,9 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  
+  def default_url
+    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
   
   version :thumb do
     process :resize_to_fill => [150,150]

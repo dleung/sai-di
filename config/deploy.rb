@@ -20,9 +20,7 @@ before 'deploy:setup', 'rvm:create_gemset' # only create gemset
 
 require "rvm/capistrano"
 
-
 default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
  
 role :web, domain                         # Your HTTP server, Apache/etc
 role :app, domain                          # This may be the same as your `Web` server
