@@ -11,7 +11,7 @@ GIT
       xpath (~> 1.0.0.beta1)
 
 PATH
-  remote: ../NewsFeedSampleApp
+  remote: lib/mountable/NewsFeedSampleApp
   specs:
     news_feed_sample_app (0.0.1)
       obscenity
