@@ -5,5 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.timestamps
     end
+    NewsFeedSampleApp::User.create!(name: "Anonymous")
   end
 end

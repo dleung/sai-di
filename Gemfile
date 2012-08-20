@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
 
-gem 'pg'
+gem 'mysql2'
+gem 'capistrano'
 gem 'news_feed'
 gem 'devise'
 gem 'slim'
@@ -21,7 +22,7 @@ gem 'geokit'
 gem 'truncate_html'
 gem 'active_link_to'
 gem 'kaminari-bootstrap'
-gem 'news_feed_sample_app', :path => "../news_feed_sample_app"
+gem 'news_feed_sample_app', :path => "../NewsFeedSampleApp"
 
 group :assets do
   gem 'execjs'
