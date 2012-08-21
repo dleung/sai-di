@@ -152,8 +152,6 @@ table
       top: 25px
       
 .min-height-900
-  min-height: 900px
-  padding-top: 40px
   padding-left: 50px
 
 .reduced_text_size, .mini_text_size
@@ -164,9 +162,23 @@ table
   
 #bk 
   height: 145px
+  padding-top: 30px
+  text-align: justify
   &.index
     //background: url('capykoa_banner.jpg') no-repeat
   &.food
-    //background: url('capykoa_banner.jpg') no-repeat
+    background: url('food_bk.jpg') no-repeat
+    padding-left: 150px
   &.programming
-    //background: url('capykoa_banner.jpg') no-repeat
+    background: url('programming_bk.jpg') no-repeat
+    padding-left: 200px
+    
+.tab-content
+  text-align: justify
+
+.portfolio
+  margin: 15px 0
+  padding: 19px 14px
+  background-color: white
+  border: 1px solid #ddd
+  @include border-radius(4px)

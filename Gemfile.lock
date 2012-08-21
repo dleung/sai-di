@@ -1,13 +1,13 @@
 GIT
   remote: git@github.com:dleung/NewsFeedSampleApp.git
-  revision: d40d5091235910ebdf56b6840da5c5ce4dc1d67e
+  revision: 851bf2ee6f62479fe718ed30e6dbca2ac1100923
   specs:
     news_feed_sample_app (0.0.1)
       obscenity
 
 GIT
   remote: https://github.com/jnicklas/capybara.git
-  revision: 3d158a0dc03276e2a79fe5f50501800b12358354
+  revision: 6529da7348b17d97d740f9d7ebd42f36036ce4e8
   specs:
     capybara (2.0.0.beta2)
       mime-types (>= 1.16)
@@ -55,7 +55,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
-    capistrano (2.13.0)
+    capistrano (2.13.3)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)

@@ -9,14 +9,18 @@
           = " with tags " + @search_tags.join(', ')
     #intro
       -if action_name == "index" && controller_name == "home"
-        #bk.index 
-          | I love you koa!
       -elsif action_name == "food"
         #bk.food 
-          | I love you  more koa!
+          | I 
+          b do love eating 
+          | and trying out new feed.  Dedicated to cuisine around the San Francisco Bay Area, this section features some of the great places worth going to. 
       -elsif action_name == "programming"
         #bk.programming
-          | weeee
+          | My 
+          b passion 
+          | is in 
+          b web development
+          | , and you'll find a collection articles on tips, trends, and new techniques I discovered in my journey so far.
     .clear-space
     - @articles.each_with_index do |article|
       .article{id="article_#{article.id}"}
