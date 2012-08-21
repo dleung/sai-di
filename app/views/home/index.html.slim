@@ -53,7 +53,7 @@
     .input-append
       = text_field_tag :q, params[:q], placeholder: 'Search', class: 'inputbox span2', id: 'query'
       button class="btn" type="submit" id="search" value="Submit" 
-        = image_url("../assets/mouse_tracks.png", size: "19x16")
+        = image_tag("mouse_tracks.png", size: "19x16")
     label Tags
     - @all_tags.each do |tag|
       label.checkbox
