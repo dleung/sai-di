@@ -71,7 +71,7 @@ gem 'jquery-ui-themes'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', "2.13.0"
 gem 'rvm-capistrano'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
