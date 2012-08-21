@@ -50,8 +50,8 @@
   span.footer &copy; Capykoa.com 2012
 #search_area.well
   = form_tag searches_path, method: 'get' do
-    .input-append
-      = text_field_tag :q, params[:q], placeholder: 'Search', class: 'inputbox span2', id: 'query'
+    .input-append    
+      = text_field_tag "search[title_or_body_contains]", @search_query, placeholder: 'Search', class: 'inputbox span2', id: 'query'
       button class="btn" type="submit" id="search" value="Submit" 
         = image_tag("mouse_tracks.png", size: "19x16")
     label Tags

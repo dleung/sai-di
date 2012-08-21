@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
-
+gem "meta_search" 
 gem 'mysql2'
 gem 'news_feed'
 gem 'devise'
