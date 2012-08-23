@@ -16,14 +16,12 @@ gem 'gritter'
 gem 'obscenity'
 gem 'acts-as-taggable-on'
 gem 'sanitize'
-gem 'tinymce-rails'
 gem 'geokit'
 gem 'truncate_html'
 gem 'active_link_to'
 gem 'kaminari-bootstrap'
 gem 'news_feed_sample_app', :git => 'git@github.com:dleung/NewsFeedSampleApp.git'
 gem 'passenger'
-gem 'sprockets'
 
 group :assets do
   gem 'execjs'
@@ -37,12 +35,10 @@ group :development do
 # gem 'rails-dev-tweaks' # no longer needed for rails 3.2
   gem 'capistrano-ext'
   gem 'railroady'
-  gem 'letter_opener'
 end
 
 group :test do
   gem "cucumber-rails", require: false
-  gem 'factory_girl_rails'
   gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git'
   gem 'capybara-screenshot'
   gem 'pickle'
