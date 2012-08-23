@@ -33,7 +33,7 @@ h2 Attachments
           .fleft
             .fleft = button_to "Update", admin_article_article_attachment_path(@article, id: article_attachment.id), method: :put, class: "btn btn-info btn-mini no-margin"
             .fleft = button_to "Delete", admin_article_article_attachment_path(@article, id: article_attachment.id), :method => :delete, :confirm => "Are you sure?", class: "btn btn-mini btn-danger no-margin"
-  = simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article), :html => {:class => "well"} do |attachment_form|
+  = simple_form_for @article.article_attachments.build, url: admin_article_article_attachments_path(@article), :html => {:class => "well", multipart: true} do |attachment_form|
     h3 Add Additional Attachments
     .alert.alert-error
       b Make sure you save your work before adding any attachments, or any changes will be lost

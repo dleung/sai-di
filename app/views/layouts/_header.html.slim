@@ -1,17 +1,11 @@
 .navbar
   .navbar-inner
     .container
-      ul.nav
-        li = link_to "Capykoa.com", root_path  
-        - if admin_signed_in?
-          li = link_to "My Dashboard", admin_path
-      .fright
+      .width-980
         ul.nav
-          - if admin_signed_in?
-            li Logged in as: 
-            li = current_admin.name
-            li = link_to "Sign out", destroy_admin_session_path, :method => :delete
-          - else
+          li = link_to "Capykoa.com", root_path  
+        .fright
+          ul.nav
             li = link_to "Sign in", new_admin_session_path
 
 #banner

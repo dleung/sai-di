@@ -10,10 +10,13 @@
     .tab-content
       .tab-pane#tab-1
         .portfolio
-          h3 David Leung
-          p I love exporing new adventures and cuisines, and it was partly because I have so many photos and records of all the places I have eaten and people asking me "what's good around here" that inspired me to start this blog.
+          h3 
+            .fleft= image_tag("http://s.gravatar.com/avatar/65513da7ba7015b32a319eb449091bfd?s=80")
+            .fright David Leung
+          .clear-space
+          p Whether they are new adventures and cuisines, I really enjoy exploring.  It is partly because I have so many photos and records of all the places I have eaten and people asking me "what's good around here" that inspired me to start this blog.
           p I also am a passionate and avid ruby on rails and web developer.  I love being on the cutting edge, looking at what the latest technological trends are at, and applying them in new and meaningful ways.  At the same time, I value stability and consistency- after all, we're all natural progressive people and it's our successful and solid backgrounds that enable us to incrementally or with large strides move ahead. 
-          p I focused my areas in front-end and back-end engineering.  In my opinion, both are equally as important, as front-end is what the audience and client receive the general tone as, and presentation is critical for impressions.  However, backend is where all the functionality is at- action, reaction, and causality. Writing the proper methods, the relevant tests, and communication between the team allows for successful this. 
+          p My areas of focus is both in front-end and back-end engineering.  In my opinion, both are equally as important, as front-end is what the audience and client receive the general tone as, and presentation is critical for impressions.  However, backend is where all the functionality is at- action, reaction, and causality. Writing the proper methods, the relevant tests, and communication between the team allows for successful this. 
           p 
             | I received a master's degree in Structural Engineering, and since then, I co-founded a startup called 
             = link_to 'quosap', 'http://www.quosap.com'
@@ -58,7 +61,9 @@
             | .  I included this app as a 
             = link_to "mountable engine", "http://edgeguides.rubyonrails.org/"
             |  on capykoa.com.
-          p = link_to "link", news_feed_sample_app_path
+          p = link_to "link to demo", news_feed_sample_app_path
+          p = link_to "source code as a sample", "https://github.com/dleung/NewsFeedSampleApp"
+          p = link_to "news feed gem", "https://github.com/dleung/NewsFeed"
           ul.thumbnails
             li#gallery
               .thumbnail
