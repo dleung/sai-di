@@ -16,6 +16,7 @@ class Admin::ArticleAttachmentsController < ApplicationController
   def destroy
     @article_attachment = ArticleAttachment.find(params[:id])
     @article = @article_attachment.article
+    @article_attachment.remove_attachment!
     if @article_attachment.destroy
       flash[:notice] = 'File Removed'
     else
