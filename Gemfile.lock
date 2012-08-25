@@ -110,10 +110,22 @@ GEM
       mail (~> 2.2)
       rspec (~> 2.0)
     erubis (2.7.0)
+    excon (0.13.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     fastthread (1.0.7)
     ffi (1.1.5)
+    fog (1.3.1)
+      builder
+      excon (~> 0.13.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.3)
     fssm (0.2.9)
     geokit (1.6.5)
       multi_json
@@ -253,6 +265,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    ruby-hmac (0.4.0)
     rubyzip (0.9.9)
     rvm-capistrano (1.2.5)
       capistrano (>= 2.0.0)
@@ -324,6 +337,7 @@ DEPENDENCIES
   devise
   email_spec
   execjs
+  fog (~> 1.3.1)
   geokit
   gritter
   guard-cucumber
