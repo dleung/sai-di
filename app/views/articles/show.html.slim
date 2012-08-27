@@ -10,10 +10,17 @@
           li#gallery
             .thumbnail
               = link_to article_attachment.attachment_url, title: article_attachment.title do
-                = image_tag article_attachment.attachment_url(:thumb) if article_attachment.attachment?
+                = image_tag article_attachment.attachment_url(:thumb) if (article_attachment.attachment? && article_attachment.published)
               p.thumbnail_title = article_attachment.title
     - unless @article.coordinates.blank?
-      #map_canvas
+      hr
+      #map_canvas.fleft
+      .map_info.fleft
+        h4 = @article.map_title
+        p = @article.address
+      .clear
+      hr
+      .clear-space
     .written
       .author
         = @article.created_at.strftime("%r- %D- ")

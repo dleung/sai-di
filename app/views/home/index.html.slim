@@ -39,7 +39,7 @@
               li#gallery
                 .thumbnail
                   = link_to article_attachment.attachment_url, title: article_attachment.title do
-                    = image_tag article_attachment.attachment_url(:tiny) if article_attachment.attachment?
+                    = image_tag article_attachment.attachment_url(:tiny) if (article_attachment.attachment? && article_attachment.published)
         .read_more = link_to "Read More", article
         .written
           .author

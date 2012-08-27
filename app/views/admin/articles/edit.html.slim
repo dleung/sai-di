@@ -3,7 +3,7 @@
   = f.input :title
   = f.input :body
   = f.label :tag_list
-  = f.text_field :tag_list,  :id => "article_tags", "data-pre" => @article.tags.map(&:attributes).to_json
+  = f.text_field :tag_list,  :id => "article_tags", "data-pre" => @article.tag_list.map {|tag| {:id => tag, :name => tag } }.to_json
   .clear
   = f.label "Author"
   = f.select :author_id, options_for_select(Admin.all.collect {|x| [x.name, x.id]})

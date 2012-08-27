@@ -1,7 +1,12 @@
 .content
   .min-height-900
-    .about_capykoa I built Capykoa.com so I can write about my thoughts and experiences.  "Capykoa" itself is a homage to the world's largest rodent- a Capybara, and the cute but listless Koala.  
-    
+    h1 About
+    .about_images
+      = image_tag "capybara.jpeg", width: "200"
+      = image_tag "koala.jpeg", width: "200"
+    .about_capykoa 
+      p I built Capykoa.com so I can write about my thoughts and experiences.  Afterall, coding requires a lot of calories to feed the brain!  It is built from scratch using Rails as a framework. 
+      p "Capykoa" itself is a homage to the world's largest rodent- a Capybara, and the cute but listless Koala.  
     .clear-space
     
     ul.nav.nav-tabs#tabs
@@ -24,7 +29,7 @@
           p davleun@gmail.com
       .tab-pane#tab-2
         .portfolio
-          h2 = link_to "Quosap.com", 'http://www.quosap.com'
+          h2 = link_to "Quosap", 'http://www.quosap.com'
           p Quosap is a online SAAS for the construction industry that facilitates communication, industry exchanges, and company and directory search.  We built this as an enterprise B2B software, so as a result, we have a robust security model, access control lists, and capabilities management and productions.  I am one of the founding members of this company and I serve as a lead developer in both front-end and back-end implementation.  I also act as a product manager and group leader in task allocation and the overall direction of the software.  
           p 
             | As lead developer, I did everything from sketching mockups and preliminary designs to meet the business needs to writing RSpec and Cucumber tests to make the backend functional.  I also worked on separate modules for news feed events, which I have adopted into a separate 
