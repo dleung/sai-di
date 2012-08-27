@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
+
   def after_sign_out_path_for(resource_name)
     root_path
   end
@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
     if resource_name.is_a? Admin
       admin_path
     elsif resource_name.is_a? User
-      if (request.referer == "/users/sign_in")
-        :pages_home
+      if session[:return_to_capykoa_article].blank?
+        root_path
       else
-        request.referer
+        article_path(Article.find(session[:return_to_capykoa_article]))
       end
     end
   end

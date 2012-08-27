@@ -10,7 +10,9 @@ class SearchesController < ApplicationController
       @articles = Article.published.tagged_with(params[:tag_ids]).search(params[:search]).order("created_at DESC").page(params[:page]).per(10)
       @search_tags = params[:tag_ids]
     end
-    @search_query = params[:search][:title_or_body_contains]
+    unless params[:search].blank?
+      @search_query = params[:search][:title_or_body_contains]
+    end
     @all_tags = Article.tag_counts_on(:tags)
     render 'home/index'
   end
