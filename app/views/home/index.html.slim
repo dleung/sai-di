@@ -35,7 +35,7 @@
         .text = truncate_html article.body.html_safe, length: 600
         attachment.clear
           ul.thumbnails
-            - article.article_attachments[0..4].published.sort_by { |obj| obj.created_at }.each do |article_attachment|
+            - article.article_attachments.published[0..4].sort_by { |obj| obj.created_at }.each do |article_attachment|
               li#gallery
                 .thumbnail
                   = link_to article_attachment.attachment_url, title: article_attachment.title do
