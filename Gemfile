@@ -5,6 +5,7 @@ gem "meta_search"
 gem 'mysql2'
 gem 'news_feed'
 gem 'devise'
+gem 'omniauth-openid'
 gem 'slim'
 gem 'simple_form'
 gem 'carrierwave'

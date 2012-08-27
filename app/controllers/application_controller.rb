@@ -6,7 +6,15 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_name)
-    admin_path
+    if resource_name.is_a? Admin
+      admin_path
+    elsif resource_name.is_a? User
+      if (request.referer == "/users/sign_in")
+        :pages_home
+      else
+        request.referer
+      end
+    end
   end
 
   def check_admin_verification!

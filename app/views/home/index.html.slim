@@ -45,6 +45,7 @@
           .author
             = article.created_at.strftime("%r- %D- ")
             = Admin.find(article.author_id).name
+            | - #{article.comments.not_deleted.size} comments
           .tags
             = article.tags.map {|tag| link_to tag.name.titleize, searches_path(tag_ids: [tag.name], q: "")}.join(", ").html_safe
     .paginate.fright = paginate(@articles)
