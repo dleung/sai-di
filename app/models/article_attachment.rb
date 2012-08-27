@@ -3,4 +3,5 @@ class ArticleAttachment < ActiveRecord::Base
   validates :title, presence: true
   belongs_to :article
   mount_uploader :attachment, AttachmentUploader
+  scope :published, where(published: true)
 end

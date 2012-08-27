@@ -6,11 +6,11 @@
     .text = @article.body.present? ? @article.body.html_safe : "[No Contents]"
     attachment.clear
       ul.thumbnails
-        - @article.article_attachments.sort_by { |obj| obj.created_at }.each do |article_attachment|
+        - @article.article_attachments.published.sort_by { |obj| obj.created_at }.each do |article_attachment|
           li#gallery
             .thumbnail
               = link_to article_attachment.attachment_url, title: article_attachment.title do
-                = image_tag article_attachment.attachment_url(:thumb) if (article_attachment.attachment? && article_attachment.published)
+                = image_tag article_attachment.attachment_url(:thumb) if article_attachment.attachment?
               p.thumbnail_title = article_attachment.title
     - unless @article.coordinates.blank?
       hr
