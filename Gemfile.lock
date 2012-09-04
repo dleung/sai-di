@@ -341,6 +341,7 @@ DEPENDENCIES
   carrierwave
   client_side_validations
   client_side_validations-simple_form
+  coderay
   coffee-rails
   compass-rails
   cucumber-rails
