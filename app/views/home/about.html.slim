@@ -2,8 +2,8 @@
   .min-height-900
     h1 About
     .about_images
-      = image_tag "capybara.jpeg", width: "200"
-      = image_tag "koala.jpeg", width: "200"
+      = image_tag "capybara.jpeg", width: "200", height: "120"
+      = image_tag "koala.jpeg", width: "200", height: "120"
     .about_capykoa 
       p I built Capykoa.com so I can write about my thoughts and experiences.  Afterall, coding requires a lot of calories to feed the brain!  It is built from scratch using Rails as a framework. 
       p "Capykoa" itself is a homage to the world's largest rodent- a Capybara, and the cute but listless Koala.  
@@ -109,6 +109,10 @@
           p This is a recent site I started building for a residential development company.  The app is more blog-like in nature, but I do plan to incorporate a variation of the admin area to allow the non-technical user to create entries and attachments fairly easily.
           p = link_to "link", "http://www.saiprojectsla.com/"
           ul.thumbnails
+            li#gallery
+              .thumbnail.thumbnail_w_100
+                = link_to "assets/sp_sn_2.jpg", title: "Sai Projects- Preliminary design proposal by me" do
+                  = image_tag "sp_sn_2_thumb.jpg"
             li#gallery
               .thumbnail.thumbnail_w_100
                 = link_to "assets/sp_sn_1.jpg", title: "Sai Projects- Coming Soon!" do
