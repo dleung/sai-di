@@ -122,10 +122,14 @@
   .mouse_back = image_tag('mouse_back.png', size: '48x48')
   span.footer &copy; Capykoa.com 2012
   
-= content_for :scripts do
-  javascript:
-    $('#tabs a').click(function (e) {
-      e.preventDefault();
-      $(this).tab('show');
-    })
+
+javascript:
+  $('#tabs a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
+  if (window.location.search.replace( "?", "" ) == "portfolio") {
+    $('#tabs a:last').tab('show');
+  } else {
     $('#tabs a:first').tab('show');
+  }
