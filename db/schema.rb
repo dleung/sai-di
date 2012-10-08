@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827033513) do
+ActiveRecord::Schema.define(:version => 20121008204325) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -75,33 +75,14 @@ ActiveRecord::Schema.define(:version => 20120827033513) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "news_feed_events", :force => true do |t|
-    t.text     "text"
-    t.integer  "event_object_id"
-    t.string   "event_object_type"
-    t.string   "event_type"
-    t.integer  "sender_id"
-    t.string   "sender_type"
-    t.integer  "recipient_id"
-    t.string   "recipient_type"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
-
-  create_table "news_feed_sample_app_messages", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "news_feed_sample_app_pets", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "news_feed_sample_app_users", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "newsletter_emails", :force => true do |t|
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  before_filter :demo_login if Rails.configuration.demo_mode
+  
+  def demo_login
+    redirect_to "/coming_soon" unless controller_name == "demo_login" or session[:demo_access]
+  end
+  
   def after_sign_out_path_for(resource_name)
     root_path
   end

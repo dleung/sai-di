@@ -1,20 +1,23 @@
 doctype html
 = conditional_html do
   head
-    title Capykoa.com
+    title Sai Developments and Investments
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = favicon_link_tag
     = csrf_meta_tags
     = render 'layouts/font'
   body
-    = render 'layouts/gmaps'
     #wrapper{class=controller_name}
       = render 'layouts/flash_container'
-      = render 'layouts/header'
+      
       #main
         section
-          = yield
+          - unless action_name == "index"
+            = render 'layouts/header'
+          .min-height-500 = yield
           = yield :scripts
+          = render 'layouts/footer'
+          
     .clear
     

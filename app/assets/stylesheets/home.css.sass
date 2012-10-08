@@ -1,43 +1,73 @@
-#search_area
-  float: right
-  width: 240px
-  min-height: 110px
-  #query
-    width: 190px
-  label.checkbox
-    width: 42%
+$main_color: #194a80
+
+section
+  width: 1020px
+
+#main_header
+  margin: 0 auto
+  width: 100%
+  #left
+    border-right: $main_color solid 3px
     float: left
-    font-family: 'Architects Daughter', cursive
+    ul
+      li
+        text-align: right
+  #right
+    border-left: $main_color solid 3px
+    float: left
+    ul
+      li
+        text-align: left
 
-.article
-  padding: 0 0 60px
+  
+  #left, #right
+    width: 200px
+    ul
+      li
+        text-transform: uppercase
+        border-top: $main_color solid 1px
+        padding: 15px
+        &:first-child
+          border-top: none
+        a
+          color: #636363
+  #center
+    width: 520px
+    float: left
+    padding: 0 20px
+    margin-bottom: 10px
+    .caption_1
+      font-size: 10px
+    .caption_2
+      font-size: 16px
+  ul
+    padding: 0px
+    margin: 0px
+
+#project_slider
+  clear: both
+
+#slider_container
   position: relative
-  .date_timeline
-    left: -85px
-    text-align: center
+  #left_arrow
     position: absolute
-    background: white
-    padding: 5px
-  .text
-    margin-top: 25px
-  .read_more
-    clear: both
-    a
-      color: black
-      text-decoration: underline
-  .written
-    margin-top: 15px
-    color: #8e8e8e
-    .author
-      float: left
-    .tags
-      float: right
-      font-weight: bold
+    left: 200px
+    top: 155px
+  #right_arrow
+    position: absolute
+    right: 200px
+    top: 155px
 
-.thumbnails
-  margin-top: 15px
-
-h3
-  a
+#news
+  margin-top: 20px
+  font-size: 20px  
+  text-transform:  uppercase
+  span#news_header 
+    font-weight: bold
+    color: gray
+    font-family: tahoma
+  span.title
     color: black
-    font-size: 20px
+  span.body
+    color: gray 
+    

@@ -1,30 +1,5 @@
-.navbar
-  .navbar-inner
-    .container
-      .width-980
-        ul.nav
-          li = link_to "Capykoa.com", root_path  
-        .fright
-          ul.nav
-            - if user_signed_in?
-              li = link_to "Sign out", destroy_user_session_path, :method => :delete
-            - else
-              li = link_to "Sign in with Google", user_omniauth_authorize_path(:google)
-
-#banner
-  #logo
-    = image_tag "capykoa-lights.jpg", size: "190x72"
-    #logo_text Blogging on Eats and Code
-  .front-menubar
-    ul
-      li.mouse = image_tag "mouse.png", size: "48x48"
-      li.link = active_link_to root_path do
-        b.capitalized H
-        | ome
-      li.link = active_link_to food_path do
-        b.capitalized F
-        | ood
-      li.link = active_link_to programming_path do
-        b.capitalized P
-        | rogramming
-      li#about.link = active_link_to "About", about_path
+.heading
+  h1
+    span = image_tag("sai_di.jpg", size: "60x60")
+    span.title = ' ' + action_name.titleize
+.clear-space

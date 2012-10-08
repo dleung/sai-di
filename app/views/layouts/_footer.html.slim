@@ -1,1 +1,7 @@
-span.footer &copy; Capykoa.com 2012
+hr.colored
+#footer_text
+  .fleft 1716 #22 Olvera Street, Los Angeles, CA 90012 / 212-983-1245 / Contact Us / Press
+  .fright.input-append    
+    = text_field_tag "newsletter_email[email]", nil, placeholder: 'Email', class: 'inputbox span2', id: 'newsletter_email_email'
+    button class="btn" type="submit" id="submit" value="Submit" 
+      | Join

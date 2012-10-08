@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Capykoa::Application.load_tasks
+Sai_di::Application.load_tasks

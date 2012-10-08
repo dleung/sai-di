@@ -1,20 +1,20 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: development_dleung_3
+  database: sai_di_development
   username: root
   password: capykoa1016
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: production_dleung_3
+  database: sai_di_production
   username: root
   password: capykoa1016
 
 test:
   adapter: mysql2
   encoding: utf8
-  database: test_dleung_3
+  database: sai_di_test
   username: root
   password: capykoa1016

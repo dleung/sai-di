@@ -1,0 +1,46 @@
+head
+  title Sai Development and Investments- Coming soon!
+  = stylesheet_link_tag "application"
+  = stylesheet_link_tag "coming_soon"
+  = javascript_include_tag "application"
+body
+  section
+    center#info
+      .fleft = image_tag('sai_di.jpg', size: "300x342")
+      ul.contact_info
+        li
+          span.icon.phone 
+          span 213.822.2216
+        li
+          span.icon.email 
+          span 
+            | macy@sai-di.com
+            br
+            | macyleung@post.harvard.edu
+        li
+          span.icon.address
+          span
+            | 1235 Old Canyon Drive
+            br
+            | Hacienda Heights
+            br
+            | CA 91745
+        #demo_log_in
+          = link_to "Log in", "#", onclick: "toggle_visibility('demo_box')"
+    
+    #demo_box{style='width: 50%; margin: 50px auto; border: solid 1px #D4D4D4; padding: 10px; display: none'}
+      h1 Login
+      #form_inputs{style='margin-left: 50px'}
+        = form_tag('demo_sign_in', class: 'simple_form', style: 'width:50%') do
+          label Account
+          br
+          = text_field_tag "Account"
+          br
+          label Password
+          br
+          = password_field_tag "Password"
+          .clear-space-15
+          hr
+          = submit_tag "Sign In", class: "green-btn"
+      .clear
+        
