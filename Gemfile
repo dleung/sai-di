@@ -19,7 +19,6 @@ gem 'sanitize'
 gem 'truncate_html'
 gem 'active_link_to'
 gem 'kaminari-bootstrap'
-gem 'news_feed_sample_app', :git => 'git@github.com:dleung/NewsFeedSampleApp.git'
 gem 'passenger'
 gem 'fog', "~> 1.3.1"
 

@@ -1,11 +1,4 @@
 GIT
-  remote: git@github.com:dleung/NewsFeedSampleApp.git
-  revision: 851bf2ee6f62479fe718ed30e6dbca2ac1100923
-  specs:
-    news_feed_sample_app (0.0.1)
-      obscenity
-
-GIT
   remote: https://github.com/jnicklas/capybara.git
   revision: 6529da7348b17d97d740f9d7ebd42f36036ce4e8
   specs:
@@ -351,7 +344,6 @@ DEPENDENCIES
   meta_search
   mini_magick
   mysql2
-  news_feed_sample_app!
   obscenity
   omniauth-openid
   passenger
