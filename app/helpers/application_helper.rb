@@ -29,7 +29,7 @@ module ApplicationHelper
   end  
   
   def get_contact_path
-    return page_path(Page.find_or_create_by_title("Contact Us").title)
+    return page_path(Page.find_or_create_by_title("ContactUs").title)
   end
   
   def get_press_page_path

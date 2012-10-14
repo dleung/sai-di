@@ -1,8 +1,10 @@
+= tinymce_assets
 = simple_form_for @page, url: admin_page_path, method: :put, :html => {:class => "form-vertical well"} do |f|
   h2 Edit Page
-  = f.input :body  
+  = f.input :body, input_html: {class: 'tinymce'}
   = f.button :wrapped, cancel: '#', class: "btn"
 .clear-space
+=tinymce
 
 = content_for :page_title do
   h1 = @page.title

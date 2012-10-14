@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puts "seeding admins"
 admins = []
 
 admin = Admin.find_or_create_by_email('davleun@gmail.com')
@@ -24,4 +18,20 @@ admins.each do |admin|
   admin.manual_verified = true
   admin.save
 end
+
+puts "Page Contents for Company"
+page = Page.find_or_create_by_title("Company")
+page.body = File.read('company_content')
+page.save
+
+puts "Page Contents for Thinking"
+page = Page.find_or_create_by_title("Thinking")
+page.body = File.read('thinking_content')
+page.save
+
+puts "contents for People page"
+page= Page.find_or_create_by_title("People")
+page.body = File.read('people_content')
+page.save 
+
 

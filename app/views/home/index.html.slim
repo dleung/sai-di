@@ -27,8 +27,8 @@
   ul.fleft
      
     - @news.each_with_index do |news, index|
-      li(id="news_#{news.index}")
-        
+      li(id="news_#{index}")
+        span.date = news.created_at.strftime("%m/%d/%Y") + ' '
         span.title = news.title
         span.title = " : " 
         span.body = news.body

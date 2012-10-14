@@ -22,6 +22,7 @@ gem 'kaminari-bootstrap'
 gem 'passenger'
 gem 'fog', "~> 1.3.1"
 gem "friendly_id"
+gem 'tinymce-rails'
 
 group :assets do
   gem 'execjs'
