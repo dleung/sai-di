@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @all_tags = Article.tag_counts_on(:tags)
     @search = Article.search(params[:search])
     @search_query = ""
+    @news = News.all
   end
 
 end

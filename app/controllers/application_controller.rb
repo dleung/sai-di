@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :demo_login if Rails.configuration.demo_mode
   
   def demo_login
-    redirect_to "/coming_soon" unless controller_name == "demo_login" or session[:demo_access]
+    redirect_to "/coming_soon" unless controller_name == "coming_soon" or session[:demo_access]
   end
   
   def after_sign_out_path_for(resource_name)

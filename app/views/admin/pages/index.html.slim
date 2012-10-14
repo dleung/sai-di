@@ -1,0 +1,25 @@
+h1 All Home Pages
+- if @pages.blank?
+  p No pages Found
+- else
+  table.table-bordered.table-striped#dataTable
+    thead
+      tr
+        th Date
+        th Title
+        th Body
+        th
+    tbody
+      - @pages.each do |page|
+        tr
+          td 
+            = page.created_at.strftime("%D %r")
+          td = link_to page.title.present? ? page.title : "[Untitled]", edit_admin_page_path(page.id)
+          td = link_to page.body.present? ? truncate_html(page.body.html_safe, length: 100) : "[None]", edit_admin_page_path(page.id)
+          
+= content_for :scripts do
+  javascript:
+    $('#dataTable').dataTable( {
+    } );
+
+    

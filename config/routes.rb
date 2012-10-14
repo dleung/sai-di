@@ -12,16 +12,19 @@ Sai_di::Application.routes.draw do
   resources :searches, only: [:index]
   resources :comments, only: [:create, :destroy]
   resources :newsletter_emails, only: [:create]
+  resources :pages, only: [:show]
   namespace :admin do
     resources :articles do
       resources :article_attachments, :only => [:create, :destroy, :update]
       get "tags"
     end
     resources :admins
+    resources :news, :only => [:create]
+    resources :pages
     match '/', :to => 'dashboard#index'
   end
   
-  get '/coming_soon', :to => 'demo_login#sign_in'
-  match 'demo_sign_in', :to => 'demo_login#log_in'
+  get '/coming_soon', :to => 'coming_soon#index'
+  match 'demo_sign_in', :to => 'coming_soon#log_in'
   
 end

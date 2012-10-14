@@ -1,5 +1,5 @@
-class DemoLoginController < ApplicationController
-  def sign_in
+class ComingSoonController < ApplicationController
+  def index
     sign_out(current_user) if current_user
     session[:demo_access] = false  
     render layout: false

@@ -1,9 +1,9 @@
 #main_header
   #left
     ul.home_menu
-      li = link_to "Company", '/company', class: 'home_link_font'
+      li = link_to "Company", get_company_page_path, class: 'home_link_font'
       li = link_to "Case Studies", '/case_studies', class: 'home_link_font'
-      li = link_to "Thinking", '/thinking', class: 'home_link_font'
+      li = link_to "Thinking", get_thinking_page_path, class: 'home_link_font'
   #center
     center
       = image_tag("main_logo.jpg", size:"150x150")
@@ -13,9 +13,9 @@
       .caption_2.home_link_font LOS ANGELES, CA, USA
   #right
     ul.home_menu
-      li = link_to "People", '/people', class: 'home_link_font'
-      li = link_to 'Press', '/press', class: 'home_link_font'
-      li = link_to "Contact Us", '/contact_us', class: 'home_link_font'
+      li = link_to "People", get_people_page_path, class: 'home_link_font'
+      li = link_to 'Press', get_press_page_path, class: 'home_link_font'
+      li = link_to "Contact Us", get_contact_path, class: 'home_link_font'
   .clear
 #project_slider
   center#slider_container
@@ -23,7 +23,13 @@
     #project = image_tag("project_1.jpg", size: "525x349")
     #right_arrow = link_to image_tag('right_arrow.jpg'), '#'
 #news
-  span#news_header News 
-  span.title 170 La Canada Plaza Update
-  span.title = " : " 
-  span.body Design Scheme Unveiled
+  #news_header.fleft News
+  ul.fleft
+     
+    - @news.each_with_index do |news, index|
+      li(id="news_#{news.index}")
+        
+        span.title = news.title
+        span.title = " : " 
+        span.body = news.body
+.clear

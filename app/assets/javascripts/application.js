@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require gritter
-//= require_tree .
 
 function toggle_visibility(id) {
        var e = document.getElementById(id);

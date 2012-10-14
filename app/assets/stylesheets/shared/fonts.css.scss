@@ -1,6 +1,14 @@
-@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
+@import url(http://fonts.googleapis.com/css?family=ABeeZee);
 
 body, h1, h2, h3, p, a {
-  font-family: 'Raleway Dots', cursive;
+  font-family: 'ABeeZee', cursive;
 }
 
+#page_body {
+  width: 600px;
+}
+
+#news_body {
+  width: 600px;
+  height: 200px;
+}

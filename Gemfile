@@ -21,6 +21,7 @@ gem 'active_link_to'
 gem 'kaminari-bootstrap'
 gem 'passenger'
 gem 'fog', "~> 1.3.1"
+gem "friendly_id"
 
 group :assets do
   gem 'execjs'

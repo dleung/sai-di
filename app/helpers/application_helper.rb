@@ -19,4 +19,24 @@ module ApplicationHelper
     txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/,
       "\\1\\3\n").gsub("\n", '<br/>')
   end
+  
+  def get_company_page_path
+    return page_path(Page.find_or_create_by_title("Company").title)
+  end
+  
+  def get_thinking_page_path
+    return page_path(Page.find_or_create_by_title("Thinking").title)
+  end  
+  
+  def get_contact_path
+    return page_path(Page.find_or_create_by_title("Contact Us").title)
+  end
+  
+  def get_press_page_path
+    return page_path(Page.find_or_create_by_title("Press").title)
+  end
+  
+  def get_people_page_path
+    return page_path(Page.find_or_create_by_title("People").title)
+  end
 end

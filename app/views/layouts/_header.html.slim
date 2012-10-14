@@ -1,5 +1,4 @@
 .heading
-  h1
-    span = image_tag("sai_di.jpg", size: "60x60")
-    span.title = ' ' + action_name.titleize
+  = link_to image_tag("sai_di.jpg", size: "60x60"), root_path
+  = render partial: "layouts/home_menu"
 .clear-space

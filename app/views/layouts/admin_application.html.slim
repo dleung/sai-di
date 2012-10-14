@@ -8,11 +8,12 @@ doctype html
     = csrf_meta_tags
     = render 'layouts/font'
   body
-    = render 'layouts/gmaps'
     #wrapper{class=controller_name}
       = render 'layouts/flash_container'
       = render 'layouts/admin_header'
       #main
+        .clear-space
+        .clear-space
         section
           = yield :page_title
           .clear

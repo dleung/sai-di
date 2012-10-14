@@ -6,16 +6,11 @@
   = f.text_field :tag_list,  :id => "article_tags", "data-pre" => @article.tag_list.map {|tag| {:id => tag, :name => tag } }.to_json
   .clear
   = f.label "Author"
-  = f.select :author_id, options_for_select(Admin.all.collect {|x| [x.name, x.id]})
+  = f.input :author_id, as: :hidden, value: current_admin.id
   .clear
   = f.label "Published?"
   = f.input :published, label: false, hint: "Publish this article to allow the public to view it"
   .clear
-  h3 Location
-  = f.input :address, hint: 'optional'
-  = f.input :map_title, label: 'Map Label', hint: 'Identify the title of the address aka "My House".  Map title is required if address is filled.'
-  - unless @article.coordinates.blank?
-    #map_canvas
   
   = f.button :wrapped, cancel: '#', class: "btn"
 .clear-space
@@ -51,18 +46,3 @@ h2 Preview
   = button_to "Preview", @article, method: :get, class: 'btn'
 = content_for :page_title do
   h1 = controller_name.titleize
-
-= content_for :scripts do
-  javascript:
-    $('#map_canvas').gmap(
-              { 'center' : "#{@article.coordinates}", 
-                'zoom' : 15, 
-                'mapTypeControl' : false, 
-                'navigationControl' : true,
-                'streetViewControl' : false, 
-                'callback' : function(map) {
-                  var self = this;
-                  self.addMarker( {'position': "#{@article.coordinates}" } );
-
-               }
-        });

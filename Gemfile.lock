@@ -120,6 +120,7 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.3)
+    friendly_id (4.0.8)
     fssm (0.2.9)
     gherkin (2.11.4)
       json (>= 1.4.6)
@@ -329,6 +330,7 @@ DEPENDENCIES
   email_spec
   execjs
   fog (~> 1.3.1)
+  friendly_id
   gritter
   guard-cucumber
   jquery-rails

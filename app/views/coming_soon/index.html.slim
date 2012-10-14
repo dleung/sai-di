@@ -2,11 +2,15 @@ head
   title Sai Development and Investments- Coming soon!
   = stylesheet_link_tag "application"
   = stylesheet_link_tag "coming_soon"
+  = stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/base/jquery-ui.css"
   = javascript_include_tag "application"
+  = javascript_include_tag "coming_soon"
 body
   section
     center#info
-      .fleft = image_tag('sai_di.jpg', size: "300x342")
+      .images
+        .banner = image_tag('sai_di.jpg', size: "300x342")
+        .coming_soon = image_tag('coming_soon.jpg', size: "300x35")
       ul.contact_info
         li
           span.icon.phone 
@@ -26,9 +30,10 @@ body
             br
             | CA 91745
         #demo_log_in
-          = link_to "Log in", "#", onclick: "toggle_visibility('demo_box')"
+          = link_to "Log in", "#", onclick: "toggle_visibility('demo_box')", id: "log_in_link"
+      .clear
     
-    #demo_box{style='width: 50%; margin: 50px auto; border: solid 1px #D4D4D4; padding: 10px; display: none'}
+    #demo_box
       h1 Login
       #form_inputs{style='margin-left: 50px'}
         = form_tag('demo_sign_in', class: 'simple_form', style: 'width:50%') do
@@ -41,6 +46,6 @@ body
           = password_field_tag "Password"
           .clear-space-15
           hr
-          = submit_tag "Sign In", class: "green-btn"
+          = submit_tag "Sign In", class: "btn"
       .clear
         

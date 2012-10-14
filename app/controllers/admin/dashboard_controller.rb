@@ -4,7 +4,8 @@ class Admin::DashboardController < ApplicationController
   layout "admin_application"
 
   def index
-    redirect_to admin_articles_path
+    @news = News.new
+    @news_index = News.all
   end
     
 end

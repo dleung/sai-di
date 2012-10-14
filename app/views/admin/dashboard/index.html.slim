@@ -1,1 +1,12 @@
-| Admin Dashboard is here
+= simple_form_for @news, url: admin_news_index_path, method: :post do |f|
+  = f.input :title, input_html: {maxlength: 30}
+  = f.input :body, placeholder: "eg new project acquired!"
+  = f.submit "Create News", class: "btn"
+ul#news_index
+  - @news_index.each do |news|
+    li
+      p.fleft = news.created_at.strftime("%D %r") + ': '
+      p.fleft 
+        b = news.title 
+      p.fleft = ' - ' + news.body
+    .clear
