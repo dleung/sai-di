@@ -12,25 +12,16 @@ body
         .banner = image_tag('sai_di.jpg', size: "300x342")
         .coming_soon = image_tag('coming_soon.jpg', size: "300x35")
       ul.contact_info
+        li info@sai-di.com
         li
-          span.icon.phone 
-          span 213.822.2216
-        li
-          span.icon.email 
-          span 
-            | macy@sai-di.com
-            br
-            | macyleung@post.harvard.edu
-        li
-          span.icon.address
           span
             | 1235 Old Canyon Drive
             br
             | Hacienda Heights
             br
             | CA 91745
-        #demo_log_in
-          = link_to "Log in", "#", onclick: "toggle_visibility('demo_box')", id: "log_in_link"
+      #demo_log_in
+        = link_to "Log in", "#"
       .clear
     
     #demo_box
