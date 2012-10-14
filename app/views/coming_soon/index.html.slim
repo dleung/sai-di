@@ -9,19 +9,12 @@ body
   section
     center#info
       .images
-        .banner = image_tag('sai-logo.jpg', size: "300x342")
-        .coming_soon = image_tag('coming_soon.jpg', size: "300x35")
+        .banner = image_tag('sai-logo.jpg', size: "200x215")
+        .coming_soon = image_tag('coming_soon.jpg', size: "200x24")
       ul.contact_info
         li info@sai-di.com
-        li
-          span
-            | 1235 Old Canyon Drive
-            br
-            | Hacienda Heights
-            br
-            | CA 91745
-      #demo_log_in
-        = link_to "Log in", "#"
+        li = link_to "www.sai-di.com", root_path
+        li#demo_log_in = link_to "Log in", "#", id: "log_in_link"
       .clear
     
     #demo_box
