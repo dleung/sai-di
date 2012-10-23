@@ -14,10 +14,10 @@ body
       ul.contact_info
         li 
           span = image_tag 'pdf.png', style: "margin-right: 5px;"
-          span = link_to "Download Brochure", '/documents/Sai-di_Brochure.pdf'
+          span = link_to "Download Brochure", '/documents/Sai_Marketing_Brochure.pdf'
         li 
           i.icon-envelope(style="margin-right: 5px")
-          | info@sai-di.com
+          span = mail_to "info@sai-di.com"
         li = link_to "www.sai-di.com", root_path
         li#demo_log_in = link_to "Log in", "#", id: "log_in_link"
       .clear
