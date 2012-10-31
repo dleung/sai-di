@@ -9,8 +9,7 @@ body
   section
     center#info
       .images
-        .banner = image_tag('sai-logo.jpg', size: "200x215")
-        .coming_soon = image_tag('coming_soon.jpg', size: "200x24")
+        .banner = image_tag('sai-logo-new.jpg', size: "200x232")
       ul.contact_info
         li 
           span = image_tag 'pdf.png', style: "margin-right: 5px;"
@@ -20,8 +19,13 @@ body
           span = mail_to "info@sai-di.com"
         li = link_to "www.sai-di.com", root_path
         li#demo_log_in = link_to "Log in", "#", id: "log_in_link"
+        .clear
+        center
+          #facebook_icon = link_to image_tag("facebook_icon.png", size: "40x40"), 'http://www.facebook.com/SaiDevelopmentsAndInvestments'
+          #twitter_icon = link_to image_tag("Twitter.png", size: "40x40"), 'https://twitter.com/SAI_LosAngeles'
+        
       .clear
-    
+    center.coming_soon = image_tag('coming_soon_blue.jpg', size: "200x24")
     #demo_box
       h1 Login
       #form_inputs{style='margin-left: 50px'}
