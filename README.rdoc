@@ -1,3 +1,9 @@
 == Sai-Di Website
 
 A quick blogging-style website with dynamicly generated content.  Unfortunately, this project never finished because the client kept changing the frontend design never settled on a final one.
+
+Features:  
+-google oauth
+-separate user and admin logins using devise
+-separate admin portal area where admin can create and modify posts
+-newsletter
